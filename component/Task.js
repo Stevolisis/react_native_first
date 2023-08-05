@@ -38,7 +38,9 @@ const styles=StyleSheet.create({
         marginRight:15
     },
     itemText:{
-        maxWidth: '80%'
+        width: '100%',
+        maxWidth: '80%',
+        textAlign: 'left',
     },
     circular:{
         width: 12,

@@ -1,6 +1,5 @@
 import { Stack } from "expo-router";
-import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput} from "react-native";
-import { TouchableOpacity } from "react-native/types";
+import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity} from "react-native";
 import Task from "../component/Task";
 
 export default Home=()=>{
@@ -10,7 +9,7 @@ export default Home=()=>{
             <Text style={styles.title}>Today's Task</Text>
 
             <View style={styles.items}>
-                <Task text='Record Youube Video'/>
+                <Task text='Record Youtube Video'/>
                 <Task text='Walk the dog'/>
                 <Task text='Take a nap'/>
                 <Task text='Fuck your babe'/>
@@ -28,7 +27,7 @@ export default Home=()=>{
                     <Text style={styles.addText}>+</Text>
                 </View>
             </TouchableOpacity>
-        </KeyboardAvoidingView>
+        </KeyboardAvoidingView> 
         </View>
 
 
@@ -39,7 +38,8 @@ const styles=StyleSheet.create({
     container:{
         flex:1,
         paddingTop:80,
-        paddingHorizontal:20
+        paddingHorizontal:20,
+        backgroundColor: '#E8EAED'
     },
     title:{
         fontSize:24,
@@ -49,13 +49,31 @@ const styles=StyleSheet.create({
         marginTop: 30
     },
     writeTaskWrapper:{
-
+        position: 'absolute',
+        bottom: 60,
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     input:{
-
+        paddingVertical: 15,
+        paddingHorizontal: 15,
+        width: 250,
+        borderRadius: 60,
+        borderColor: '#C0C0C0',
+        backgroundColor: '#FFF',
+        borderColor: '#C0C0C0',
+        borderWidth: 1,
+        width: 250
     },
     addWrapper:{
-
+        width: 60,
+        height: 60,
+        backgroundColor: '#FFF',
+        borderRadius: 60,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     addText:{
 
