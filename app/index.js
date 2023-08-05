@@ -50,10 +50,10 @@ const styles=StyleSheet.create({
     },
     writeTaskWrapper:{
         position: 'absolute',
-        bottom: 60,
-        width: '100%',
+        bottom: 20,
+        // width: '100%',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'center'
     },
     input:{
@@ -65,7 +65,8 @@ const styles=StyleSheet.create({
         backgroundColor: '#FFF',
         borderColor: '#C0C0C0',
         borderWidth: 1,
-        width: 250
+        width: 250,
+        marginRight: 5
     },
     addWrapper:{
         width: 60,
@@ -73,7 +74,9 @@ const styles=StyleSheet.create({
         backgroundColor: '#FFF',
         borderRadius: 60,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderColor: '#C0C0C0',
+        borderWidth: 1,
     },
     addText:{
 
