@@ -1,9 +1,14 @@
-import { Stack } from "expo-router";
+import { useState } from "react";
 import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity} from "react-native";
 import Task from "../component/Task";
 
 export default Home=()=>{
-    
+    const [task, setTask]=useState();
+
+    const addTask=()=>{
+        console.log('Added Task: ',task)
+    }
+
     return(
         <View style={styles.container}>
             <Text style={styles.title}>Today's Task</Text>
@@ -21,7 +26,12 @@ export default Home=()=>{
          }
          style={styles.writeTaskWrapper}
         >
-            <TextInput style={styles.input} placeholder={'Write a task'}/>
+            <TextInput 
+                style={styles.input} 
+                placeholder={'Write a task'}
+                value={task}
+                onChangeText={text=>setTask(text)}
+            />
             <TouchableOpacity>
                 <View style={styles.addWrapper}>
                     <Text style={styles.addText}>+</Text>
@@ -37,7 +47,7 @@ export default Home=()=>{
 const styles=StyleSheet.create({
     container:{
         flex:1,
-        paddingTop:80,
+        paddingTop: 60,
         paddingHorizontal:20,
         backgroundColor: '#E8EAED'
     },
@@ -51,7 +61,6 @@ const styles=StyleSheet.create({
     writeTaskWrapper:{
         position: 'absolute',
         bottom: 20,
-        // width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center'
