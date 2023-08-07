@@ -26,7 +26,7 @@ export default Home=()=>{
                 {
                     taskItems.map((item,i)=>{
                         return (
-                            <TouchableOpacity key={i} onPress={()=>deleteTask()}>
+                            <TouchableOpacity key={i} onPress={()=>deleteTask(i)}>
                                 <Task text={item}/>
                             </TouchableOpacity>
                         )
