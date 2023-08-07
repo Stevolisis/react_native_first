@@ -12,6 +12,12 @@ export default Home=()=>{
         setTask('');
     }
 
+    const deleteTask=(i)=>{
+        let itemCopy=[...taskItems];
+        itemCopy.splice(i,1);
+        setTaskItems(itemCopy);
+    }
+
     return(
         <View style={styles.container}>
             <Text style={styles.title}>Today's Task</Text>
@@ -19,7 +25,11 @@ export default Home=()=>{
             <View style={styles.items}>
                 {
                     taskItems.map((item,i)=>{
-                        return <Task text={item} key={i}/>
+                        return (
+                            <TouchableOpacity key={i} onPress={()=>deleteTask()}>
+                                <Task text={item}/>
+                            </TouchableOpacity>
+                        )
                     })
                 }
             </View>
