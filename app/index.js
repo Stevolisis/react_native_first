@@ -3,10 +3,14 @@ import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpaci
 import Task from "../component/Task";
 
 export default Home=()=>{
-    const [task, setTask]=useState();
+    const [task, setTask]=useState('');
+    const [taskItems, setTaskItems]=useState([]);
 
     const addTask=()=>{
-        console.log('Added Task: ',task)
+        console.log('Added Task: ',task);
+        setTaskItems([...taskItems, task]);
+        setTask('');
+        console.log('Task Items: ', taskItems);
     }
 
     return(
@@ -14,10 +18,11 @@ export default Home=()=>{
             <Text style={styles.title}>Today's Task</Text>
 
             <View style={styles.items}>
-                <Task text='Record Youtube Video'/>
-                <Task text='Walk the dog'/>
-                <Task text='Take a nap'/>
-                <Task text='Fuck your babe'/>
+                {
+                    taskItems.map((item,i)=>{
+                        return <Task text={item} key={i}/>
+                    })
+                }
             </View>
 
         <KeyboardAvoidingView
@@ -32,7 +37,7 @@ export default Home=()=>{
                 value={task}
                 onChangeText={text=>setTask(text)}
             />
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>addTask()}>
                 <View style={styles.addWrapper}>
                     <Text style={styles.addText}>+</Text>
                 </View>
@@ -62,19 +67,20 @@ const styles=StyleSheet.create({
         position: 'absolute',
         bottom: 20,
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center'
+        justifyContent: 'center',
+        alignItems: 'space-around',
+        width: '90vw',
+        // flexWrap: 'wrap'
     },
     input:{
         paddingVertical: 15,
         paddingHorizontal: 15,
-        width: 250,
         borderRadius: 60,
         borderColor: '#C0C0C0',
         backgroundColor: '#FFF',
         borderColor: '#C0C0C0',
         borderWidth: 1,
-        width: 250,
+        width: '80%',
         marginRight: 5
     },
     addWrapper:{
