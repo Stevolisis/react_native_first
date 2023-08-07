@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Keyboard} from "react-native";
 import Task from "../component/Task";
 
 export default Home=()=>{
@@ -7,10 +7,9 @@ export default Home=()=>{
     const [taskItems, setTaskItems]=useState([]);
 
     const addTask=()=>{
-        console.log('Added Task: ',task);
+        Keyboard.dismiss();
         setTaskItems([...taskItems, task]);
         setTask('');
-        console.log('Task Items: ', taskItems);
     }
 
     return(
